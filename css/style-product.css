@@ -1,0 +1,378 @@
+/* ----------------------------------------------------
+   style-product.css  –  Responsive rewrite (2025-06-06)
+   ---------------------------------------------------- */
+
+/* ---------- 1) 글로벌 리셋 ---------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: none;
+  text-decoration: none;
+  -webkit-font-smoothing: antialiased;
+}
+
+menu,
+ol,
+ul {
+  list-style: none;
+}
+
+/* ---------- 2) 기본 타이포 ---------- */
+:root {
+  --c-dark: #404040;
+  --c-accent: #ee992a;
+  --c-light: #ffffff;
+  --ff-base: "Pretendard", sans-serif;
+}
+
+/* ---------- 3) 페이지 래퍼 ---------- */
+.page-2 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+/* ---------- 4) 네비게이션 ---------- */
+.frame-29 {
+  width: 100%;
+  padding: 4vw 5vw 2.5vw;
+  background: var(--c-light);
+  display: flex;
+  justify-content: center;
+}
+
+.nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4vw;
+}
+
+.nav a {
+  font: 400 1.3rem/1.4 var(--ff-base);
+  color: var(--c-dark);
+  transition: color .2s ease;
+}
+
+.nav a:hover,
+.nav .product > a {
+  color: var(--c-accent);
+}
+
+/* ---------- 5) 섹션 – 간격 & 공통 ---------- */
+section,
+.frame-4,
+.frame-8,
+.frame-18,
+.frame-19,
+.frame-20,
+.frame-26 {
+  width: 100%;
+  padding: 12vw 6vw;
+  background: var(--c-light);
+}
+
+/* ---------- 6) 로고 벡터 ---------- */
+.frame-4 {
+  display: flex;
+  justify-content: center;
+}
+
+.vector {
+  width: 45vw;
+  max-width: 324px;
+  height: auto;
+}
+
+/* ---------- 7) 히어로 이미지 (group-23) ---------- */
+.group-23 {
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.group-23 .mask-group {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ---------- 8) 소개 텍스트 ---------- */
+.frame-8 { text-align: left; }
+
+.customer-experience {
+  font: 600 1.15rem/1.4 var(--ff-base);
+  color: var(--c-dark);
+  margin-bottom: 6vw;
+}
+
+.frame-6 {
+  display: flex;
+  flex-direction: column;
+  gap: 8vw;
+}
+
+.frame-6 .div {
+  font: 600 2rem/1.35 var(--ff-base);
+  color: var(--c-dark);
+}
+
+.frame-5 {
+  display: flex;
+  flex-direction: column;
+  gap: 6vw;
+  max-width: 90ch;
+}
+
+.frame-5 > div {
+  font: 300 0.95rem/1.6 var(--ff-base);
+  color: var(--c-dark);
+}
+
+/* ---------- 9) 비디오 섹션 (sequence-01-1 등) ---------- */
+.sequence-01-1,
+._1,
+.div4,
+._13 {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  position: relative;
+  overflow: hidden;
+}
+
+.sequence-01-1 .bg-video,
+._12 .bg-video {
+  position: absolute;
+  inset: 0;
+}
+
+.bg-video video,
+._12 video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  pointer-events: none;
+}
+
+/* ---------- 10) CALM Technology 블록 (group-29) ---------- */
+.rectangle-240654653 { display: none; }   /* 어두운 전체 배경 제거 */
+
+.group-28 {
+  width: 100%;
+  padding: 12vw 6vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8vw;
+  background: #0b0605;
+  color: var(--c-light);
+}
+
+.group-26 img,
+.group-27 {
+  width: 100%;
+  max-width: 520px;
+  height: auto;
+  object-fit: cover;
+}
+
+.frame-32 {
+  margin-top: 6vw;
+  text-align: center;
+}
+
+.calm {
+  font: 700 2.4rem/1.1 var(--ff-base);
+  opacity: .8;
+}
+
+.div2 {
+  font: 700 1rem/1.2 var(--ff-base);
+  opacity: .8;
+}
+
+/* ---------- 11) 번호 + 설명 섹션 (frame-18/19/20) ---------- */
+.frame-15 {
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+  margin-bottom: 2.5vw;
+}
+
+.frame-15 > div:first-child {
+  font: 600 1.5rem/1 var(--ff-base);
+}
+
+.frame-15 > div:nth-child(2) {
+  font: 600 1.1rem/1.25 var(--ff-base);
+}
+
+.frame-16 > div {
+  font: 300 .95rem/1.6 var(--ff-base);
+  color: var(--c-dark);
+}
+
+/* ---------- 12) 비디오 배경 + 오버레이 (frame-21) ---------- */
+.frame-21 {
+  width: 100%;
+  background: var(--c-light);
+  padding: 0;
+}
+
+._12 {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  position: relative;
+  overflow: hidden;
+}
+
+._12::after {                      /* 어두운 오버레이 */
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,.2);
+}
+
+/* ---------- 13) 푸터 ---------- */
+.frame-27,
+.frame-28 {
+  width: 100%;
+  padding: 8vw 0;
+  background: var(--c-light);
+}
+
+.frame-27 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4vw;
+}
+
+.frame-22 { width: 12vw; max-width: 171px; }
+
+.sina-beuro-2025-all-rights-reserved {
+  font: 600 1rem/1.4 var(--ff-base);
+  color: #f5c27f;
+}
+
+.frame-28 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6vw;
+  text-align: center;
+}
+
+.frame-28 .div5,
+.uiux-design-team,
+.kim-minjae-jo-yeonsoo-jeong-hisong-shin-chaeun-son-juhyeon {
+  font: 600 1rem/1.4 var(--ff-base);
+  color: var(--c-dark);
+}
+
+.kim-minjae-jo-yeonsoo-jeong-hisong-shin-chaeun-son-juhyeon {
+  font-weight: 300;
+}
+
+/* ---------- 14) AI 사용 고지 ---------- */
+.frame-26 {
+  background: var(--c-light);
+  text-align: left;
+}
+
+.frame-26 p,
+.frame-26 div {
+  font: 300 .9rem/1.4 var(--ff-base);
+  color: var(--c-dark);
+}
+
+/* ---------- 15) 하단 여백 ---------- */
+.rectangle-240654655 {
+  width: 100%;
+  height: 25vh;
+  min-height: 200px;
+  background: var(--c-light);
+}
+
+/* =========================================================
+   BREAKPOINTS
+   ========================================================= */
+
+/* 태블릿 (≥768px) */
+@media (min-width: 768px) {
+
+  .frame-29 { padding: 60px 50px 30px; }
+
+  .nav a       { font-size: 1.35rem; }
+  .customer-experience { font-size: 1.25rem; }
+
+  .frame-6 {
+    flex-direction: row;
+    gap: 6vw;
+  }
+
+  .frame-6 .div   { font-size: 2.2rem; width: 35%; }
+  .frame-5        { width: 60%; }
+
+  .frame-32 { margin-top: 4vw; }
+
+  .frame-32 .calm { font-size: 3rem; }
+  .frame-32 .div2 { font-size: 1.1rem; }
+
+  .frame-28 {
+    flex-direction: row;
+    justify-content: center;
+    gap: 5vw;
+    text-align: left;
+  }
+}
+
+/* 데스크톱 (≥1024px) */
+@media (min-width: 1024px) {
+
+  /* 네비게이션 */
+  .nav a { font-size: 1.5rem; }
+
+  /* 섹션 패딩 */
+  section,
+  .frame-4,
+  .frame-8,
+  .frame-18,
+  .frame-19,
+  .frame-20,
+  .frame-26 {
+    padding: 110px 140px;
+  }
+
+  .frame-4   { padding: 150px 0; }
+
+  /* 소개 타이포 */
+  .frame-6 .div { font-size: 2.5rem; }
+
+  /* CALM Tech 이미지 정렬 */
+  .group-28 {
+    flex-direction: row;
+    justify-content: center;
+    gap: 6vw;
+  }
+
+  .group-27,
+  .group-26 img { max-width: 522px; }
+
+  /* 번호 섹션 패딩 */
+  .frame-18,
+  .frame-19,
+  .frame-20 { padding: 110px 215px; }
+
+  /* 푸터 로고 */
+  .frame-22 { width: 171px; }
+
+  .rectangle-240654655 { height: 390px; }
+}
