@@ -241,10 +241,14 @@ section,
 }
 
 /* ---------- 13) 푸터 ---------- */
-.frame-27,
+.frame-27 {
+  width: 100%;
+  padding: 5vw 0;
+  background: var(--c-light);
+}
 .frame-28 {
   width: 100%;
-  padding: 8vw 0;
+  padding: 5vw 0;
   background: var(--c-light);
 }
 
@@ -265,16 +269,22 @@ section,
 .frame-28 {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   gap: 6vw;
-  text-align: center;
+  text-align: left;
+  padding: 8vw;
 }
 
-.frame-28 .div5,
 .uiux-design-team,
 .kim-minjae-jo-yeonsoo-jeong-hisong-shin-chaeun-son-juhyeon {
   font: 600 1rem/1.4 var(--ff-base);
   color: var(--c-dark);
+}
+
+.frame-28 .div5 {
+  font: 600 1rem/1.4 var(--ff-base);
+  color: var(--c-dark);
+  align-items: flex-start;
 }
 
 .kim-minjae-jo-yeonsoo-jeong-hisong-shin-chaeun-son-juhyeon {
