@@ -1,7 +1,23 @@
 /* ----------------------------------------------------
    style-product.css  –  Responsive rewrite (2025-06-06)
    ---------------------------------------------------- */
+/* ─── style.css 맨 위쪽에 변수 추가 ─── */
+:root{
+  /* 모바일 ≈ 12 vw, 태블릿 이상 ≈ 90 px */
+  --header-h-m: 12vw;
+  --header-h-d: 120px;
+}
 
+/* 페이지 래퍼 */
+.page-2{
+  /* ↓ 네비 높이 보정 */
+  padding-top: var(--header-h-m);
+}
+
+/* 768 px 이상일 때 네비 높이가 고정값이면 */
+@media (min-width:768px){
+  .page-1{ padding-top: var(--header-h-d); }
+}
 /* ---------- 1) 글로벌 리셋 ---------- */
 *,
 *::before,
@@ -39,15 +55,28 @@ ul {
   overflow-x: hidden;
 }
 
-/* ---------- 4) 네비게이션 ---------- */
-.frame-29 {
-  width: 100%;
-  padding: 4vw 5vw 2.5vw;
-  background: var(--c-light);
+
+/* ---------- 3) 네비게이션 ---------- */
+.frame-3 {
+  position: fixed;
+  top: 0;
+  z-index: 1000;
+  /* 기본은 투명 + 부드러운 전환 */
+  background: rgba(255,255,255,0.2);
+  transition: background .3s ease, box-shadow .3s ease;
+
+  padding: 4vw 5vw 2vw;            /*  상단/좌우/하단 */
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
+  gap: 4vw;
+  width: 100%;
 }
-
+/* hover 시 – 흰 배경 & 살짝 그림자 */
+.frame-3:hover{
+  background: #ffffff;
+  box-shadow: 0 2px 6px rgba(0,0,0,.06);
+}
 .nav {
   display: flex;
   flex-wrap: wrap;
@@ -55,14 +84,23 @@ ul {
 }
 
 .nav a {
-  font: 400 1.3rem/1.4 var(--ff-base);
-  color: var(--c-dark);
+  font-family: "Pretendard", sans-serif;
+  font-size: 1.3rem;              /* ≈21px */
+  line-height: 1.4;
+  color: #404040;
   transition: color .2s ease;
 }
 
-.nav a:hover,
+/* hover 상태일 때 링크 : 검은 글자 */
+.frame-3:hover .nav a{ color:#404040; }
+
+.nav a:hover {
+  color: #EE992A !important;
+}
+
+/* 현재 페이지(active) 표시 */
 .nav .product > a {
-  color: var(--c-accent);
+  color: #EE992A !important;
 }
 
 /* ---------- 5) 섹션 – 간격 & 공통 ---------- */
@@ -119,6 +157,7 @@ section,
 }
 
 .frame-6 .div {
+  min-width: 13ch;
   font: 600 2rem/1.35 var(--ff-base);
   color: var(--c-dark);
 }
@@ -126,7 +165,7 @@ section,
 .frame-5 {
   display: flex;
   flex-direction: column;
-  gap: 6vw;
+  gap: 3vw;
   max-width: 90ch;
 }
 
@@ -246,17 +285,18 @@ section,
   padding: 5vw 0;
   background: var(--c-light);
 }
-.frame-28 {
+/* .frame-28 {
   width: 100%;
   padding: 5vw 0;
   background: var(--c-light);
-}
+} */
 
 .frame-27 {
+  padding: 5vw 0;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 4vw;
+  gap: 2vw;
 }
 
 .frame-22 { width: 12vw; max-width: 171px; }
@@ -265,30 +305,39 @@ section,
   font: 600 1rem/1.4 var(--ff-base);
   color: #f5c27f;
 }
-
 .frame-28 {
+  padding: 5vw 0;
   display: flex;
   flex-direction: column;
+  /* align-items: center; */
+  gap: 5vw;
+}
+
+.div {
   align-items: flex-start;
-  gap: 6vw;
-  text-align: left;
-  padding: 8vw;
+  font-family: "Pretendard Medium", sans-serif;
+  font-size: 1rem;
+  line-height: 1.4;
+  color: #404040;
+  text-align: center;
+  letter-spacing: -0.025em;
 }
 
-.uiux-design-team,
+.uiux-design-team {
+  font-family: "Pretendard Medium", sans-serif;
+  font-size: 1rem;
+  line-height: 1.4;
+  color: #404040;
+  text-align: center;
+  letter-spacing: -0.025em;
+}
 .kim-minjae-jo-yeonsoo-jeong-hisong-shin-chaeun-son-juhyeon {
-  font: 600 1rem/1.4 var(--ff-base);
-  color: var(--c-dark);
-}
-
-.frame-28 .div5 {
-  font: 600 1rem/1.4 var(--ff-base);
-  color: var(--c-dark);
-  align-items: flex-start;
-}
-
-.kim-minjae-jo-yeonsoo-jeong-hisong-shin-chaeun-son-juhyeon {
-  font-weight: 300;
+  font-family: "Pretendard", sans-serif;
+  font-size: 1rem;
+  line-height: 1.4;
+  color: #404040;
+  text-align: center;
+  letter-spacing: -0.025em;
 }
 
 /* ---------- 14) AI 사용 고지 ---------- */
@@ -341,6 +390,19 @@ section,
     justify-content: center;
     gap: 5vw;
     text-align: left;
+  }
+
+    .div {
+    width: auto;
+    max-width: 260px;
+    font-size: 1.25rem;
+    text-align: left;
+  }
+
+  .uiux-design-team,
+  .kim-minjae-jo-yeonsoo-jeong-hisong-shin-chaeun-son-juhyeon {
+    text-align: left;
+    font-size: 1.1rem;
   }
 }
 

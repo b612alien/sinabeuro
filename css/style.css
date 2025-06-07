@@ -1,6 +1,23 @@
 /* ----------------------------------------------------
    style.css  –  Responsive rewrite (2025-06-06)
    ---------------------------------------------------- */
+/* ─── style.css 맨 위쪽에 변수 추가 ─── */
+:root{
+  /* 모바일 ≈ 12 vw, 태블릿 이상 ≈ 90 px */
+  --header-h-m: 12vw;
+  --header-h-d: 120px;
+}
+
+/* 페이지 래퍼 */
+.page-1{
+  /* ↓ 네비 높이 보정 */
+  padding-top: var(--header-h-m);
+}
+
+/* 768 px 이상일 때 네비 높이가 고정값이면 */
+@media (min-width:768px){
+  .page-1{ padding-top: var(--header-h-d); }
+}
 
 /* ---------- 1) 글로벌 리셋 ---------- */
 *,
@@ -33,7 +50,13 @@ ul {
 
 /* ---------- 3) 네비게이션 ---------- */
 .frame-3 {
-  background: #ffffff;
+  position: fixed;
+  top: 0;
+  z-index: 1000;
+  /* 기본은 투명 + 부드러운 전환 */
+  background: rgba(255,255,255,0.2);
+  transition: background .3s ease, box-shadow .3s ease;
+
   padding: 4vw 5vw 2vw;            /*  상단/좌우/하단 */
   display: flex;
   justify-content: center;
@@ -41,7 +64,11 @@ ul {
   gap: 4vw;
   width: 100%;
 }
-
+/* hover 시 – 흰 배경 & 살짝 그림자 */
+.frame-3:hover{
+  background: #ffffff;
+  box-shadow: 0 2px 6px rgba(0,0,0,.06);
+}
 .nav {
   display: flex;
   flex-wrap: wrap;
@@ -56,13 +83,16 @@ ul {
   transition: color .2s ease;
 }
 
+/* hover 상태일 때 링크 : 검은 글자 */
+.frame-3:hover .nav a{ color:#404040; }
+
 .nav a:hover {
-  color: #EE992A;
+  color: #EE992A !important;
 }
 
 /* 현재 페이지(active) 표시 */
 .nav .home > a {
-  color: #EE992A;
+  color: #EE992A !important;
 }
 
 /* ---------- 4) 메인 비디오 섹션 ---------- */
@@ -115,12 +145,28 @@ ul {
   padding: 5vw 0;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  /* align-items: center; */
   gap: 5vw;
 }
 
-.div,
-.uiux-design-team,
+.div {
+  align-items: flex-start;
+  font-family: "Pretendard Medium", sans-serif;
+  font-size: 1rem;
+  line-height: 1.4;
+  color: #404040;
+  text-align: center;
+  letter-spacing: -0.025em;
+}
+
+.uiux-design-team {
+  font-family: "Pretendard Medium", sans-serif;
+  font-size: 1rem;
+  line-height: 1.4;
+  color: #404040;
+  text-align: center;
+  letter-spacing: -0.025em;
+}
 .kim-minjae-jo-yeonsoo-jeong-hisong-shin-chaeun-son-juhyeon {
   font-family: "Pretendard", sans-serif;
   font-size: 1rem;
