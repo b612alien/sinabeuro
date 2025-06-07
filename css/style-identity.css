@@ -187,6 +187,22 @@ menu,ol,ul{list-style:none;}
 /* ---------- 10. 여백 박스 ---------- */
 .rectangle-240654655{width:100%;height:25vh;min-height:200px;background:var(--c-light);}
 
+
+/* 모든 섹션에 미리 심어 둘 기본 상태 */
+.reveal{
+  opacity: 0;                     /* 처음엔 안 보임 */
+  transform: translateY(40px);    /* 살짝 아래에 있음 */
+  transition: opacity .8s ease-out,
+              transform .8s ease-out;
+}
+
+/* 뷰포트에 들어오면 JS가 이 클래스를 추가해 줌 */
+.reveal-visible{
+  opacity: 1;
+  transform: none;
+}
+
+
 /* =========================================================
    BREAKPOINTS
    ========================================================= */
